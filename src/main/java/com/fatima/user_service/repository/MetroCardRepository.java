@@ -7,5 +7,7 @@ import java.util.Optional;
 
 public interface MetroCardRepository extends JpaRepository<MetroCard, Long> {
     Optional<MetroCard> findByUserId(Long userId);
+
+    MetroCard findByCardNumber(String cardNumber);
 }
 

@@ -13,11 +13,14 @@ public class MetroCardService {
     private final MetroCardRepository metroCardRepository;
 
     public MetroCard buyMetroCard(MetroCard metroCard) {
+        metroCard.setActive(true);
         return metroCardRepository.save(metroCard);
     }
 
-    public Optional<MetroCard> getMetroCardByUserId(Long userId) {
-        return metroCardRepository.findByUserId(userId);
+    public String deleteMetroCard(String cardNumber) {
+        MetroCard deletedCard = metroCardRepository.findByCardNumber(cardNumber);
+        deletedCard.setActive(false);
+        return "Deleted card"+cardNumber+"successfully";
     }
 }
 
