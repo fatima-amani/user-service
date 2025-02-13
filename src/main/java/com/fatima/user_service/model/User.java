@@ -2,6 +2,8 @@ package com.fatima.user_service.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -17,4 +19,8 @@ public class User {
     private String email;
     private String phone;
     private boolean active;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<TravelHistory> travelHistories;
 }

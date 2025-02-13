@@ -20,7 +20,7 @@ public class MetroCardService {
     public String deleteMetroCard(String cardNumber) {
         MetroCard deletedCard = metroCardRepository.findByCardNumber(cardNumber);
         deletedCard.setActive(false);
-        return "Deleted card"+cardNumber+"successfully";
+        return "Deleted card "+cardNumber+" successfully";
     }
 }
 

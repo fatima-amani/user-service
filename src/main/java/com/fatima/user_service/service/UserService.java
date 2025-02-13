@@ -13,11 +13,12 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User createUser(User user) {
+        user.setActive(true);
         return userRepository.save(user);
     }
 
-    public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public Optional<User> getProfile(Long id) {
+        return userRepository.findById(id);
     }
 }
 
