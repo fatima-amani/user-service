@@ -20,5 +20,10 @@ public class UserService {
     public Optional<User> getProfile(Long id) {
         return userRepository.findById(id);
     }
+
+    public String getUserEmailById(Long id){
+        User user = userRepository.getOne(id);
+        return user.getEmail();
+    }
 }
 
